@@ -9,21 +9,23 @@ public class LibraryUpdate {
 
         System.out.println("Podaj ISBN");
         String isbn = in.nextLine();
-        System.out.println("Podaj nowego Autora");
-        String author = in.nextLine();
 
         BookDao dao = new BookDao();
         Book book = dao.read(isbn);
 
         if (book == null) {
             System.out.println("Nie ma takiej książki");
-        }else{
+        } else {
+            System.out.println("Podaj nowego Autora");
+            String author = in.nextLine();
+
             book.setAuthor(author);
             dao.update(book);
+            System.out.println("Dane książki zostały zaktualizowane");
         }
 
         dao.close();
 
-        System.out.println("Dane książki zostały zaktualizowane");
+
     }
 }
