@@ -22,6 +22,7 @@ public class LibraryRead {
     public static void readAll() {
         BookDao dao = new BookDao();
         ArrayList<Book> bookList = dao.readAll();
-        bookList.forEach(book -> System.out.println(book));
+        //bookList.forEach(book -> System.out.println(book));
+        bookList.forEach(System.out::println);
     }
 }

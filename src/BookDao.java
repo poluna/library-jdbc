@@ -57,7 +57,7 @@ public class BookDao {
                 return book;
             }
         } catch (SQLException e) {
-            System.out.println("Could not get employee");
+            System.out.println("Could not get book");
         }
         return null;
         // lub ElementNotFoundException
@@ -109,27 +109,4 @@ public class BookDao {
             System.out.println("Could not delete row");
         }
     }
-
-    public Book findByIsbn(String isbn) {
-        final String sql = "select id, author, title, year, isbn from books where isbn = ?";
-        try {
-            PreparedStatement prepStmt = connection.prepareStatement(sql);
-            prepStmt.setString(1, isbn);
-            ResultSet result = prepStmt.executeQuery();
-
-            Book book = new Book();
-            book.setId(result.getLong("id"));
-            book.setAuthor(result.getString("author"));
-            book.setTitle(result.getString("title"));
-            book.setYear(result.getString("year"));
-            book.setIsbn(result.getString("isbn"));
-
-            return book;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
 }

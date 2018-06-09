@@ -10,7 +10,7 @@ public class LibraryDelete {
 
         BookDao dao = new BookDao();
 
-        if (dao.findByIsbn(isbn) != null) {
+        if (dao.read(isbn) != null) {
             dao.delete(isbn);
             System.out.println("Książka została usunięta");
         } else {
